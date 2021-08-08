@@ -10,6 +10,7 @@ import service.DbConnection;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,6 +58,16 @@ public class DbConnectionTest {
 
         bookList.stream().forEach(System.out::println);
 
+    }
 
+    @Test
+    public void update(){
+        try (Statement statement = dbConnection.getConnection().createStatement()){
+            int resultSet = statement.executeUpdate("update book set name = 784 where id = 1");
+//            dbConnection.getConnection().setAutoCommit(false);
+            System.out.println(resultSet);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
