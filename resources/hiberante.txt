@@ -1,0 +1,4 @@
+1- difference load(lazy),find
+2- hibernate configuration (xml,properties)
+3- hibernate is code first - hbm2ddl => create , update , create-drop ,
+verify(check database and code is fixed if it is not not run project)

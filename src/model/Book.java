@@ -1,12 +1,28 @@
 package model;
 
-import java.sql.Date;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
 
-public class Book {
+@Entity(name = "Book")
+@Table(name = "Book12")
+public class Book implements Serializable {
+    @Id
+    @Column(name = "id",columnDefinition = "number")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "book_seq")
+    @SequenceGenerator(name = "book_seq",sequenceName = "book_seq",allocationSize = 1)
     private Long id;
+
+    @Column(name = "name", columnDefinition = "nvarchar2(50)")
     private String name;
+
+    @Column(name = "author", columnDefinition = "nvarchar2(50)")
     private String author;
+
+    @Column(name = "price", columnDefinition = "number(12,2)")
     private Long price;
+
+    @Column(name = "created_at")
     private Date createdAt;
 
     public Book() {
