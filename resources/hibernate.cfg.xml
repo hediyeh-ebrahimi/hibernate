@@ -9,9 +9,9 @@
             jdbc:oracle:thin:@localhost:1521:orcl
         </property>
 
-        <property name = "hibernate.connection.username">hediyeh</property>
+        <property name = "hibernate.connection.username">hibernate</property>
 
-        <property name = "hibernate.connection.password">myjava123</property>
+        <property name = "hibernate.connection.password">123456</property>
 
         <property name = "hibernate.dialect">
             org.hibernate.dialect.Oracle10gDialect
@@ -20,6 +20,8 @@
         <property name="show_sql">true</property>
 
         <mapping class="model.Book"/>
+        <mapping class="model.Course"/>
+        <mapping class="model.CoursePk"/>
 
     </session-factory>
 </hibernate-configuration>

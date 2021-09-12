@@ -2,3 +2,47 @@
 2- hibernate configuration (xml,properties)
 3- hibernate is code first - hbm2ddl => create , update , create-drop ,
 verify(check database and code is fixed if it is not not run project)
+4- collection => map,list,set,bag,idbag,array
+5- xml is not  type safe , it is volume file
+6- schema =
+Schema ظرف یا Containerای است که کلیه اشیاء یک بانک اطلاعاتی را در برمی گیرد.
+ هدف استفاده از Schema، قرار گرفتن اشیاء مختلف بانک اطلاعاتی مثل جداول و ... درون آن است
+ ، در واقع بوسیله Schema می توانیم، اشیاء مختلف بانک اطلاعاتی را دسته بندی کنیم
+7- catalog =
+کاتالوگ پایگاه داده نمونه پایگاه داده تشکیل‌شده از فراداده است
+که در آن تعریف‌های اشیاء پایگاه داده مانند جدول پایه، نمایه، مترادف، گستره ارزش‌ها، فهرست، کاربر، و گروه کاربران ذخیره شده‌اند.
+ اس‌کیوال استاندارد یک روش یگانه به نام "طرح اطلاعات" را برای دسترسی به کاتالوگ، مشخص می‌کند.
+
+بعضی دیتابیس ها catalog هم دارند که خود در بر گیرنده چندین schema است
+و همانطور که میدانیم هر schema هم میتواند در بر گیرنده چندین table باشد
+ و اگر catalog داشتیم انرا هم مشخص میکنیم
+
+8- index
+9- Access
+@Access(AccessType.FIELD) => @Column on filed(Name)
+@Access(AccessType.PROPERTY) => @Column on property(getName)
+
+10- precicion
+int - precision - (Optional) The precision for a decimal (exact numeric) column. (Applies only if a decimal column is used.)
+
+11- scale
+int - scale - (Optional) The scale for a decimal (exact numeric) column. (Applies only if a decimal column is used.)
+
+12-
+    @Column(name = "author", columnDefinition = "nvarchar2(50)",insertable = true,updatable = false)
+    private String author;
+
+    @Column(name = "author", columnDefinition = "nvarchar2(50)",updatable = true,insertable = false)
+    private String author0;
+
+13-Transient
+
+14- Id Strategy(GeneratorType)
+-auto = hibernate select base on database
+-identity = bas on identitywhich database provides
+-sequence =
+-table = table stores last id
+@TableGenerator()
+
+15- id by multiple columns
+    1-@Embeddable (serializable,hashCode,equals)

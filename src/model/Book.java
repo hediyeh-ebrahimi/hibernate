@@ -1,23 +1,39 @@
 package model;
 
+import org.hibernate.annotations.Index;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity(name = "Book")
-@Table(name = "Book12")
+@Entity(name = "Book") // hql
+//@Table(name = "Book12")
+@Table(name = "Book12",schema = "",catalog = "")
+//        uniqueConstraints = {@UniqueConstraint(name = "uniqueKey",columnNames = "id,name")})
+//        ,indexes=
+//        {
+//                @Index(name = "idx_1",columnNames = "id,name")
+//        }jpa
+//
+
+//@Access(AccessType.FIELD)
+//@Access(AccessType.PROPERTY)
 public class Book implements Serializable {
     @Id
-    @Column(name = "id",columnDefinition = "number")
+    @Column(name = "id",columnDefinition = "number",precision = 10 , scale = 5)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "book_seq")
+//    @TableGenerator(name = "book_seq",table = "book_id_table")
     @SequenceGenerator(name = "book_seq",sequenceName = "book_seq",allocationSize = 1)
     private Long id;
 
     @Column(name = "name", columnDefinition = "nvarchar2(50)")
     private String name;
 
-    @Column(name = "author", columnDefinition = "nvarchar2(50)")
+    @Column(name = "author", columnDefinition = "nvarchar2(50)",insertable = true,updatable = true)
     private String author;
+
+//    @Column(name = "author", columnDefinition = "nvarchar2(50)",insertable = false,updatable = false)
+//    private String author0;
 
     @Column(name = "price", columnDefinition = "number(12,2)")
     private Long price;
@@ -25,15 +41,19 @@ public class Book implements Serializable {
     @Column(name = "created_at")
     private Date createdAt;
 
+    @Transient
+    @Column(name = "desc")
+    private String desc;
+
     public Book() {
     }
 
-    public Book(Long id, String name, String author, Long price, Date createdAt) {
-        this.id = id;
+    public Book(String name, String author,Long price, Date createdAt, String desc) {
         this.name = name;
         this.author = author;
         this.price = price;
         this.createdAt = createdAt;
+        this.desc = desc;
     }
 
     public Long getId() {
@@ -82,6 +102,13 @@ public class Book implements Serializable {
         return this;
     }
 
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
 
     @Override
     public String toString() {
