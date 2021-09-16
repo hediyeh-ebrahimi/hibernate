@@ -1,15 +1,15 @@
 package model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity(name = "course")
 @Table(name = "course")
 public class Course {
 
-    @Id
+//    @Id
+//    private CoursePk coursePk;
+
+    @EmbeddedId
     private CoursePk coursePk;
 
     @Column(name = "description")

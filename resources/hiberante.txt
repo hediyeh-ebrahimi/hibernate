@@ -46,3 +46,7 @@ int - scale - (Optional) The scale for a decimal (exact numeric) column. (Applie
 
 15- id by multiple columns
     1-@Embeddable (serializable,hashCode,equals)
+    2-main object for id => @Id or @EmbededId
+16- @IdClass
+
+
