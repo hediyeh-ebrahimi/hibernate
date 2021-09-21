@@ -49,4 +49,35 @@ int - scale - (Optional) The scale for a decimal (exact numeric) column. (Applie
     2-main object for id => @Id or @EmbededId
 16- @IdClass
 
+17- collections => list,set,map,array,bag,idBag
+list=
+ لیست دارای ایندکس میباشد
+ لیست میتواند ایتم تکراری داشته باشد
+ ایندکس لیست از 0 شروع میشود
+ اگر در جستجوایتم یافت نشد شماره ایندکس -1 میباشد
+ list -> arrayList,linkedList
+  arrayList  بهینه نیست برای درج و حذف از میانه لیست چون تعدا شیف بالاست
+  حذف و اضافه کردن آیتم ها در لیست پیوندی خیلی بهینه تر از ArrayList هستش.
+set=
+hashedSet -. عناصر موجود در HashSet منحصربه فرد هستند، به عبارت دیگر HashSet نمی‌تواند عناصر تکراری داشته باشد.
+                HashSet برای ذخیره سازی عناصر از مکانیزمی به نام درهم سازی (hashing) استفاده می‌کند.
+                اگر در یک HashSet بیش از یک مقدار null وارد کنیم، HashSet تنها یک مقدار null برای ما برمی گرداند.
+
+map=
+ اطلاعات را به صورت key و value نگهداری می کند
+ ویژگی های hash map در جاوا
+ برای ذخیره کردن داده ها از Thread مجزا استفاده می کند.
+ از key و value پشتیبانی می کند.
+ سرعت بالای ذخیره سازی
+ از رخ دادن خطای Memory Leak جلو گیری می کند.
+ hash map از شاخص index استفاده می کند.
+ هر key دارای hash codeاست و برای جستجو کردن به ما کمک می کند.
+
+bag=
+ااگر نیاز به مرتب سازی و ایندکس نداریم bag گرسنه خوبی هست
+این پیاده ساز یمخصوص هایبرنیت هست
+
+idbag=
+روابط many to many
+
 
